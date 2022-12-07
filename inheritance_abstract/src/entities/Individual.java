@@ -23,7 +23,7 @@ public class Individual extends TaxPayer {
 
 	@Override
 	public double tax() {
-		Double total = 0.0;
+		double total = 0;
 		if (getAnualIncome() < 20000 && getHealthExpenditures() > 0 ) {
 			total = (getAnualIncome() * 0.15) - (getHealthExpenditures() * 0.5);
 		}
@@ -38,6 +38,21 @@ public class Individual extends TaxPayer {
 			total = getAnualIncome() * 0.25;
 		}
 		return total; 
+		
+		//Another possibility: 
+		
+		/*if (getAnualIncome() < 20000.0) {
+			total = getAnualIncome() * 0.15;
+		}
+		else {
+			total = getAnualIncome() * 0.25;
+		}
+		total -= getHealthExpenditures() * 0.5;
+		if (total < 0.0) {
+			total = 0.0;
+		}
+		return total; */ 
+		
 	}
 
 }

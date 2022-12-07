@@ -25,23 +25,19 @@ public class Program {
 			System.out.println("Tax payer # " + i + " data:");
 			System.out.print("Individual or company (i/c)? ");
 			char payerType = sc.next().charAt(0);
-			if (payerType == 'i') {
-				sc.nextLine();
+			sc.nextLine();
 				System.out.print("Name: ");
 				String name = sc.next();
 				System.out.print("Anual Income: ");
 				Double anualIncome = sc.nextDouble();
+				
+				if (payerType == 'i') {
 				System.out.print("Health Expenditures: ");
 				Double healthExpenditures = sc.nextDouble();
 
 				taxPayers.add(new Individual(name, anualIncome, healthExpenditures));
-			} else if (payerType == 'c') {
-				sc.nextLine();
-				System.out.print("Name: ");
-				String name = sc.next();
-				System.out.print("Anual Income: ");
-				Double anualIncome = sc.nextDouble();
-				sc.nextLine();
+			} 
+				else if (payerType == 'c') {
 				System.out.print("Number of employees: ");
 				int numberOfEmployees = sc.nextInt();
 
@@ -49,6 +45,7 @@ public class Program {
 			}
 		}
 
+		System.out.println();
 		System.out.println("TAXES PAID: ");
 		double sum = 0.0;
 		for (TaxPayer payers : taxPayers) {
